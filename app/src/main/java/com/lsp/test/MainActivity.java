@@ -18,12 +18,14 @@ import android.view.MenuItem;
 import com.lsp.test.fragment.BaseFragment;
 import com.lsp.test.fragment.DesFragment;
 import com.lsp.test.fragment.HttpFragment;
+import com.lsp.test.fragment.WaveViewFragment;
 import com.lsp.test.utils.ToastUtil;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private DesFragment desFragment = new DesFragment();
     private HttpFragment httpFragment = new HttpFragment();
+    private WaveViewFragment waveViewFragment = new WaveViewFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +102,9 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.nav_http_fragment:
                 addFragment(httpFragment);
+                break;
+            case R.id.wave_view_fragment:
+                addFragment(waveViewFragment);
                 break;
         }
 

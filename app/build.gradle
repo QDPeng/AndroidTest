@@ -28,4 +28,5 @@ dependencies {
     compile 'com.google.code.gson:gson:2.2.4'
     //compile 'com.github.lzyzsd:circleprogress:1.1.0@aar'
     compile project(':circle-progress-lib')
+    compile project(':wave-view-lib')
 }
