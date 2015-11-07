@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidTest.iml" filepath="$PROJECT_DIR$/AndroidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/circle-progress-lib/circle-progress-lib.iml" filepath="$PROJECT_DIR$/circle-progress-lib/circle-progress-lib.iml" />
     </modules>
   </component>
 </project>

@@ -26,4 +26,6 @@ dependencies {
     compile 'com.android.support:design:23.0.1'
     compile 'com.squareup.okhttp:okhttp:2.5.0'
     compile 'com.google.code.gson:gson:2.2.4'
+    //compile 'com.github.lzyzsd:circleprogress:1.1.0@aar'
+    compile project(':circle-progress-lib')
 }
