@@ -24,7 +24,7 @@
         android:layout_toEndOf="@+id/border"
         android:layout_toRightOf="@+id/border"
         android:max="50"
-        android:progress="10" />
+        android:progress="0" />
 
     <TextView
         android:id="@+id/border"

@@ -35,6 +35,7 @@ public class WaveViewFragment extends BaseFragment {
 
     private void initView(View view) {
         final WaveView waveView = (WaveView) view.findViewById(R.id.wave);
+        waveView.setWaterLevelRatio(0.6f);
         waveView.setBorder(mBorderWidth, mBorderColor);
 
         mWaveHelper = new WaveHelper(waveView);
@@ -60,8 +61,11 @@ public class WaveViewFragment extends BaseFragment {
                 .setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                        mBorderWidth = i;
-                        waveView.setBorder(mBorderWidth, mBorderColor);
+//                        mBorderWidth = i;
+//                        waveView.setBorder(mBorderWidth, mBorderColor);
+                        float progress = (float) i / 50;
+                        LogUtil.i("progress",progress+"");
+                        waveView.setWaterLevelRatio(progress);
                     }
 
                     @Override
@@ -99,6 +103,7 @@ public class WaveViewFragment extends BaseFragment {
                                         Color.parseColor("#3cf16d7a"));
                                 mBorderColor = Color.parseColor("#44f16d7a");
                                 waveView.setBorder(mBorderWidth, mBorderColor);
+                                // waveView.setWaterLevelRatio(0.2f);
                                 break;
                             case R.id.colorGreen:
                                 waveView.setWaveColor(
@@ -106,6 +111,7 @@ public class WaveViewFragment extends BaseFragment {
                                         Color.parseColor("#80b7d28d"));
                                 mBorderColor = Color.parseColor("#B0b7d28d");
                                 waveView.setBorder(mBorderWidth, mBorderColor);
+                                //waveView.setWaterLevelRatio(0.3f);
                                 break;
                             case R.id.colorBlue:
                                 waveView.setWaveColor(
@@ -113,6 +119,7 @@ public class WaveViewFragment extends BaseFragment {
                                         Color.parseColor("#b8f1ed"));
                                 mBorderColor = Color.parseColor("#b8f1ed");
                                 waveView.setBorder(mBorderWidth, mBorderColor);
+                                // waveView.setWaterLevelRatio(0.4f);
                                 break;
                             default:
                                 waveView.setWaveColor(
@@ -128,21 +135,21 @@ public class WaveViewFragment extends BaseFragment {
 
     @Override
     public void onResume() {
-        LogUtil.i("wave_view_fragment","onResume");
+        LogUtil.i("wave_view_fragment", "onResume");
         mWaveHelper.start();
         super.onResume();
     }
 
     @Override
     public void onPause() {
-        LogUtil.i("wave_view_fragment","onPause");
+        LogUtil.i("wave_view_fragment", "onPause");
         mWaveHelper.cancel();
         super.onPause();
     }
 
     @Override
     public void onDestroy() {
-        LogUtil.i("wave_view_fragment","onDestroy");
+        LogUtil.i("wave_view_fragment", "onDestroy");
         super.onDestroy();
     }
 }
