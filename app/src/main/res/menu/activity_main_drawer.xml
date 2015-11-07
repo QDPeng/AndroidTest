@@ -15,9 +15,9 @@
             android:icon="@android:drawable/ic_menu_slideshow"
             android:title="WaveViewFragment" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/fabProgressCircle"
             android:icon="@android:drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="FABProgressCircleActivity" />
     </group>
 
     <item android:title="Communicate">

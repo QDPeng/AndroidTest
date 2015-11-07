@@ -5,6 +5,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <!--wave view use-->
     <string name="border">Border</string>
     <string name="shape">Shape</string>
     <string name="circle">Circle</string>
@@ -14,4 +15,8 @@
     <string name="green">Green</string>
     <string name="blue">Blue</string>
     <string name="defaultColor">Default</string>
+    <!--Fab progress circle model use -->
+    <string name="railay_beach">Railay Beach</string>
+    <string name="photo_attribution">by Jorge Castillo</string>
+    <string name="cloud_upload_complete">Uploaded image.</string>
 </resources>
