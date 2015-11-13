@@ -58,9 +58,9 @@ public class TestService extends Service {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             if (action.equals(ActionUtil.HEART_BEAT_BROADCAST_START)) {
-                HeartBeat.getInstancence().start();
+                HeartBeat.getInstancence(getApplicationContext()).start();
             } else if (action.equals(ActionUtil.HEART_BEAT_BROADCAST_STOP)) {
-                HeartBeat.getInstancence().stop();
+                HeartBeat.getInstancence(getApplicationContext()).stop();
             }
 
         }
