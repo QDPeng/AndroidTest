@@ -19,7 +19,9 @@ public class HeartBeat {
     private Worker worker;// 工作线程
     private volatile boolean canSend = false;
     private Client client;
+    private MyClient myClient;
     private String sendStr = "习近平在唁电中表示，施密特先生为德国国家建设和欧洲一体化进程作出了不懈努力，赢得了世人尊重。40年前，施密特先生同中国老一辈领导人共同开启了中德友好合作的大门，为中德关系发展作出了积极贡献。";
+    private byte[] data = new byte[8];
 
     public HeartBeat(Context context) {
         executor = Executors.newSingleThreadExecutor();
@@ -30,6 +32,8 @@ public class HeartBeat {
                 LogUtil.i("onSocketResponse-->", txt);
             }
         });
+        myClient = new MyClient();
+
     }
 
     public static HeartBeat getInstancence(Context context) {
@@ -53,15 +57,29 @@ public class HeartBeat {
         executor.shutdown();
     }
 
+    private byte[] send = new byte[8];
+
     private class Worker implements Runnable {
 
         @Override
         public void run() {
             if (canSend) {
-                Packet packet = new Packet();
-                packet.pack(sendStr);
-                client.open();
-                client.send(packet);
+//                if (client.isNeedConn()){
+//                    client.open();
+//                    LogUtil.i("HeartBeat", "client.open()");
+//                }else{
+//                    LogUtil.i("HeartBeat", "client_not_open()");
+//                }
+//
+//                int len = sendStr.getBytes().length;
+//                ByteUtil.putInt(send, len, 0);//字节长度
+//                ByteUtil.putInt(send, 1, 4);//类型为1
+//                byte[] newByte = ByteUtil.byteMerger(send, sendStr.getBytes());
+//
+//                Packet packet = new Packet();
+//                packet.pack(newByte);
+//                client.send(packet);
+                myClient.openConnect();
                 LogUtil.i("HeartBeat", "send a heart beat");
             }
 

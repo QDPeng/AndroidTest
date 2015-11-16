@@ -1,1 +1,1 @@
-include ':app','circle-progress-lib','wave-view-lib','fab-progress-circle'
+include ':app', ':socket-test','circle-progress-lib','wave-view-lib','fab-progress-circle'

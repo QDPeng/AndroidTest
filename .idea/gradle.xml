@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/circle-progress-lib" />
             <option value="$PROJECT_DIR$/fab-progress-circle" />
+            <option value="$PROJECT_DIR$/socket-test" />
             <option value="$PROJECT_DIR$/wave-view-lib" />
           </set>
         </option>
