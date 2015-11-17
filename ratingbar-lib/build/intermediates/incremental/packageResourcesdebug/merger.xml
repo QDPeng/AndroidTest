@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\studio_project\AndroidTest\ratingbar-lib\res"><file path="D:\studio_project\AndroidTest\ratingbar-lib\res\values\attrs.xml" qualifiers=""><declare-styleable name="ProperRatingBar">
+
+        <!-- Total number of ticks to show. Default is '5' -->
+        <attr format="integer" name="prb_totalTicks"/>
+
+        <!-- Use this to set rating from xml. Default is '3' -->
+        <attr format="integer" name="prb_defaultRating"/>
+
+        <!-- If set to 'true' - use will be able to change rating by clicking. Default is 'false' -->
+        <attr format="boolean" name="prb_clickable"/>
+
+
+        <!-- Symbol to be used as a tick. Default is '$' -->
+        <attr format="string" name="prb_symbolicTick"/>
+
+        <!-- Text size of symbolic tick. Default is '15sp' -->
+        <attr name="android:textSize"/>
+
+        <!-- Text style of symbolic tick. Possible: 'bold', 'italic', 'normal'. Default is 'normal'. -->
+        <attr name="android:textStyle"/>
+
+        <!-- Color of symbolic tick that is not selected (not rated). Default is '#FF000000' (black). -->
+        <attr format="reference|color" name="prb_symbolicTickNormalColor"/>
+
+        <!-- Color of symbolic tick that is selected (rated). Default is '#FF888888' (gray). -->
+        <attr format="reference|color" name="prb_symbolicTickSelectedColor"/>
+
+
+        <!-- Drawable resource to use as a tick that is not selected (not rated). No default value. -->
+        <attr format="reference" name="prb_tickNormalDrawable"/>
+
+        <!-- Drawable resource to use as a tick that is selected (rated). No default value. -->
+        <attr format="reference" name="prb_tickSelectedDrawable"/>
+
+        <!-- Margin to be applied to tick drawables. Only applies to drawable-type ticks. Default is '1dp' (gray). -->
+        <attr format="dimension" name="prb_tickSpacing"/>
+    </declare-styleable><item name="prb_child_tag_id" type="id"/></file><file path="D:\studio_project\AndroidTest\ratingbar-lib\res\values\dimens.xml" qualifiers=""><dimen name="prb_symbolic_tick_default_text_size">15sp</dimen><dimen name="prb_drawable_tick_default_spacing">1dp</dimen></file><file path="D:\studio_project\AndroidTest\ratingbar-lib\res\values\strings.xml" qualifiers=""><string name="prb_default_symbolic_string">$</string></file></source><source path="D:\studio_project\AndroidTest\ratingbar-lib\build\generated\res\rs\debug"/><source path="D:\studio_project\AndroidTest\ratingbar-lib\build\generated\res\resValues\debug"/></dataSet><dataSet config="debug"><source path="D:\studio_project\AndroidTest\ratingbar-lib\src\debug\res"/></dataSet><mergedItems><configuration qualifiers=""><declare-styleable name="ProperRatingBar"><attr format="integer" name="prb_totalTicks"/><attr format="integer" name="prb_defaultRating"/><attr format="boolean" name="prb_clickable"/><attr format="string" name="prb_symbolicTick"/><attr name="android:textSize"/><attr name="android:textStyle"/><attr format="reference|color" name="prb_symbolicTickNormalColor"/><attr format="reference|color" name="prb_symbolicTickSelectedColor"/><attr format="reference" name="prb_tickNormalDrawable"/><attr format="reference" name="prb_tickSelectedDrawable"/><attr format="dimension" name="prb_tickSpacing"/></declare-styleable></configuration></mergedItems></merger>
