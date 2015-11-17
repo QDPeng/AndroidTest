@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -51,4 +52,30 @@
         android:text="sign_in"
         android:textStyle="bold" />
 
+    <io.techery.properratingbar.ProperRatingBar
+        android:id="@+id/http_fragment_ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        app:prb_clickable="true"
+        app:prb_defaultRating="4"
+        app:prb_image_size="14dp"
+        app:prb_tickNormalDrawable="@drawable/ic_star_normal"
+        app:prb_tickSelectedDrawable="@drawable/ic_star_selected"
+        app:prb_tickSpacing="0dp"
+        app:prb_totalTicks="5" />
+
+    <com.hedgehog.ratingbar.RatingBar
+        android:id="@+id/http_fragment_ratingbar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        app:clickable="true"
+        app:starCount="5"
+        app:starEmpty="@drawable/ic_star_normal"
+        app:starFill="@drawable/ic_star_selected"
+        app:starImageSize="14dp" />
 </LinearLayout>

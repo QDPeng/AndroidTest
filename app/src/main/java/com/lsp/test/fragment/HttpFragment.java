@@ -13,8 +13,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.hedgehog.ratingbar.RatingBar;
 import com.lsp.test.R;
 import com.lsp.test.utils.LogUtil;
+
+import io.techery.properratingbar.ProperRatingBar;
+import io.techery.properratingbar.RatingListener;
 
 /**
  * Created by xian on 2015/10/12.
@@ -23,6 +27,7 @@ public class HttpFragment extends BaseFragment {
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
     private Button loginButton;
+    ProperRatingBar ratingBar;
 
     @Nullable
     @Override
@@ -48,7 +53,14 @@ public class HttpFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 mPasswordView.setError("id not valid");
-                Snackbar.make(mEmailView,"i'm snackbar!",Snackbar.LENGTH_LONG).setAction("nnn",null).show();
+                Snackbar.make(mEmailView, "i'm snackbar!", Snackbar.LENGTH_LONG).setAction("nnn", null).show();
+            }
+        });
+
+        ratingBar.setListener(new RatingListener() {
+            @Override
+            public void onRatePicked(ProperRatingBar ratingBar) {
+                Snackbar.make(mEmailView, ""+ratingBar.getRating(), Snackbar.LENGTH_LONG).setAction("nnn", null).show();
             }
         });
     }
@@ -57,6 +69,8 @@ public class HttpFragment extends BaseFragment {
         mEmailView = (AutoCompleteTextView) view.findViewById(R.id.http_fragment_email);
         mPasswordView = (EditText) view.findViewById(R.id.http_fragment_password);
         loginButton = (Button) view.findViewById(R.id.http_fragment_sign_in);
+        ratingBar= (ProperRatingBar) view.findViewById(R.id.http_fragment_ratingBar);
+        RatingBar mRatingBar = (RatingBar) view.findViewById(R.id.http_fragment_ratingbar2);
 
     }
 }

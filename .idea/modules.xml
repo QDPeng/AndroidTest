@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/circle-progress-lib/circle-progress-lib.iml" filepath="$PROJECT_DIR$/circle-progress-lib/circle-progress-lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/fab-progress-circle/fab-progress-circle.iml" filepath="$PROJECT_DIR$/fab-progress-circle/fab-progress-circle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ratingbar-lib/ratingbar-lib.iml" filepath="$PROJECT_DIR$/ratingbar-lib/ratingbar-lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/socket-test/socket-test.iml" filepath="$PROJECT_DIR$/socket-test/socket-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/wave-view-lib/wave-view-lib.iml" filepath="$PROJECT_DIR$/wave-view-lib/wave-view-lib.iml" />
     </modules>
