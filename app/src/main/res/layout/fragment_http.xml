@@ -37,7 +37,7 @@
             android:imeActionId="@+id/action_login"
             android:imeActionLabel="action_sign_in"
             android:imeOptions="actionUnspecified"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:maxLines="1"
             android:singleLine="true" />
 
