@@ -16,7 +16,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static int prb_clickable=0x7f010002;
+        public static int prb_clickable=0x7f010003;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -24,35 +24,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static int prb_defaultRating=0x7f010001;
-        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static int prb_symbolicTick=0x7f010003;
-        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
-"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-         */
-        public static int prb_symbolicTickNormalColor=0x7f010004;
-        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
-"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-         */
-        public static int prb_symbolicTickSelectedColor=0x7f010005;
-        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-         */
-        public static int prb_tickNormalDrawable=0x7f010006;
-        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
-or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-         */
-        public static int prb_tickSelectedDrawable=0x7f010007;
+        public static int prb_defaultRating=0x7f010002;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -62,7 +34,45 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static int prb_tickSpacing=0x7f010008;
+        public static int prb_image_size=0x7f010000;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static int prb_symbolicTick=0x7f010004;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static int prb_symbolicTickNormalColor=0x7f010005;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static int prb_symbolicTickSelectedColor=0x7f010006;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static int prb_tickNormalDrawable=0x7f010007;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static int prb_tickSelectedDrawable=0x7f010008;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static int prb_tickSpacing=0x7f010009;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -70,7 +80,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static int prb_totalTicks=0x7f010000;
+        public static int prb_totalTicks=0x7f010001;
     }
     public static final class dimen {
         public static int prb_drawable_tick_default_spacing=0x7f020000;
@@ -93,6 +103,7 @@ containing a value of this type.
            <tr><td><code>{@link #ProperRatingBar_android_textStyle android:textStyle}</code></td><td></td></tr>
            <tr><td><code>{@link #ProperRatingBar_prb_clickable io.techery.properratingbar:prb_clickable}</code></td><td></td></tr>
            <tr><td><code>{@link #ProperRatingBar_prb_defaultRating io.techery.properratingbar:prb_defaultRating}</code></td><td></td></tr>
+           <tr><td><code>{@link #ProperRatingBar_prb_image_size io.techery.properratingbar:prb_image_size}</code></td><td></td></tr>
            <tr><td><code>{@link #ProperRatingBar_prb_symbolicTick io.techery.properratingbar:prb_symbolicTick}</code></td><td></td></tr>
            <tr><td><code>{@link #ProperRatingBar_prb_symbolicTickNormalColor io.techery.properratingbar:prb_symbolicTickNormalColor}</code></td><td></td></tr>
            <tr><td><code>{@link #ProperRatingBar_prb_symbolicTickSelectedColor io.techery.properratingbar:prb_symbolicTickSelectedColor}</code></td><td></td></tr>
@@ -105,6 +116,7 @@ containing a value of this type.
            @see #ProperRatingBar_android_textStyle
            @see #ProperRatingBar_prb_clickable
            @see #ProperRatingBar_prb_defaultRating
+           @see #ProperRatingBar_prb_image_size
            @see #ProperRatingBar_prb_symbolicTick
            @see #ProperRatingBar_prb_symbolicTickNormalColor
            @see #ProperRatingBar_prb_symbolicTickSelectedColor
@@ -116,7 +128,7 @@ containing a value of this type.
         public static final int[] ProperRatingBar = {
             0x01010095, 0x01010097, 0x7f010000, 0x7f010001,
             0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005,
-            0x7f010006, 0x7f010007, 0x7f010008
+            0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009
         };
         /**
           <p>This symbol is the offset where the {@link android.R.attr#textSize}
@@ -143,7 +155,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name io.techery.properratingbar:prb_clickable
         */
-        public static int ProperRatingBar_prb_clickable = 4;
+        public static int ProperRatingBar_prb_clickable = 5;
         /**
           <p>This symbol is the offset where the {@link io.techery.properratingbar.R.attr#prb_defaultRating}
           attribute's value can be found in the {@link #ProperRatingBar} array.
@@ -157,7 +169,23 @@ theme attribute (in the form
 containing a value of this type.
           @attr name io.techery.properratingbar:prb_defaultRating
         */
-        public static int ProperRatingBar_prb_defaultRating = 3;
+        public static int ProperRatingBar_prb_defaultRating = 4;
+        /**
+          <p>This symbol is the offset where the {@link io.techery.properratingbar.R.attr#prb_image_size}
+          attribute's value can be found in the {@link #ProperRatingBar} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name io.techery.properratingbar:prb_image_size
+        */
+        public static int ProperRatingBar_prb_image_size = 2;
         /**
           <p>This symbol is the offset where the {@link io.techery.properratingbar.R.attr#prb_symbolicTick}
           attribute's value can be found in the {@link #ProperRatingBar} array.
@@ -171,7 +199,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name io.techery.properratingbar:prb_symbolicTick
         */
-        public static int ProperRatingBar_prb_symbolicTick = 5;
+        public static int ProperRatingBar_prb_symbolicTick = 6;
         /**
           <p>This symbol is the offset where the {@link io.techery.properratingbar.R.attr#prb_symbolicTickNormalColor}
           attribute's value can be found in the {@link #ProperRatingBar} array.
@@ -183,7 +211,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name io.techery.properratingbar:prb_symbolicTickNormalColor
         */
-        public static int ProperRatingBar_prb_symbolicTickNormalColor = 6;
+        public static int ProperRatingBar_prb_symbolicTickNormalColor = 7;
         /**
           <p>This symbol is the offset where the {@link io.techery.properratingbar.R.attr#prb_symbolicTickSelectedColor}
           attribute's value can be found in the {@link #ProperRatingBar} array.
@@ -195,7 +223,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name io.techery.properratingbar:prb_symbolicTickSelectedColor
         */
-        public static int ProperRatingBar_prb_symbolicTickSelectedColor = 7;
+        public static int ProperRatingBar_prb_symbolicTickSelectedColor = 8;
         /**
           <p>This symbol is the offset where the {@link io.techery.properratingbar.R.attr#prb_tickNormalDrawable}
           attribute's value can be found in the {@link #ProperRatingBar} array.
@@ -205,7 +233,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name io.techery.properratingbar:prb_tickNormalDrawable
         */
-        public static int ProperRatingBar_prb_tickNormalDrawable = 8;
+        public static int ProperRatingBar_prb_tickNormalDrawable = 9;
         /**
           <p>This symbol is the offset where the {@link io.techery.properratingbar.R.attr#prb_tickSelectedDrawable}
           attribute's value can be found in the {@link #ProperRatingBar} array.
@@ -215,7 +243,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name io.techery.properratingbar:prb_tickSelectedDrawable
         */
-        public static int ProperRatingBar_prb_tickSelectedDrawable = 9;
+        public static int ProperRatingBar_prb_tickSelectedDrawable = 10;
         /**
           <p>This symbol is the offset where the {@link io.techery.properratingbar.R.attr#prb_tickSpacing}
           attribute's value can be found in the {@link #ProperRatingBar} array.
@@ -231,7 +259,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name io.techery.properratingbar:prb_tickSpacing
         */
-        public static int ProperRatingBar_prb_tickSpacing = 10;
+        public static int ProperRatingBar_prb_tickSpacing = 11;
         /**
           <p>This symbol is the offset where the {@link io.techery.properratingbar.R.attr#prb_totalTicks}
           attribute's value can be found in the {@link #ProperRatingBar} array.
@@ -245,6 +273,6 @@ theme attribute (in the form
 containing a value of this type.
           @attr name io.techery.properratingbar:prb_totalTicks
         */
-        public static int ProperRatingBar_prb_totalTicks = 2;
+        public static int ProperRatingBar_prb_totalTicks = 3;
     };
 }

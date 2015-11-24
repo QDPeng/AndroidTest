@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="ProperRatingBar"><attr format="integer" name="prb_totalTicks"/><attr format="integer" name="prb_defaultRating"/><attr format="boolean" name="prb_clickable"/><attr format="string" name="prb_symbolicTick"/><attr name="android:textSize"/><attr name="android:textStyle"/><attr format="reference|color" name="prb_symbolicTickNormalColor"/><attr format="reference|color" name="prb_symbolicTickSelectedColor"/><attr format="reference" name="prb_tickNormalDrawable"/><attr format="reference" name="prb_tickSelectedDrawable"/><attr format="dimension" name="prb_tickSpacing"/></declare-styleable>
+    <declare-styleable name="ProperRatingBar"><attr format="dimension" name="prb_image_size"/><attr format="integer" name="prb_totalTicks"/><attr format="integer" name="prb_defaultRating"/><attr format="boolean" name="prb_clickable"/><attr format="string" name="prb_symbolicTick"/><attr name="android:textSize"/><attr name="android:textStyle"/><attr format="reference|color" name="prb_symbolicTickNormalColor"/><attr format="reference|color" name="prb_symbolicTickSelectedColor"/><attr format="reference" name="prb_tickNormalDrawable"/><attr format="reference" name="prb_tickSelectedDrawable"/><attr format="dimension" name="prb_tickSpacing"/></declare-styleable>
     <!-- From: file:/D:/studio_project/AndroidTest/ratingbar-lib/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="prb_drawable_tick_default_spacing">1dp</dimen>

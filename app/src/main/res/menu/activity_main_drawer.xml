@@ -18,6 +18,10 @@
             android:id="@+id/fabProgressCircle"
             android:icon="@android:drawable/ic_menu_manage"
             android:title="FABProgressCircleActivity" />
+        <item
+            android:id="@+id/video_activity"
+            android:icon="@android:drawable/ic_menu_manage"
+            android:title="VideoActivity" />
     </group>
 
     <item android:title="Communicate">

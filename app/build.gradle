@@ -34,5 +34,6 @@ dependencies {
     compile project(':fab-progress-circle')
     compile project(':socket-test')
     compile project(':ratingbar-lib')
+    compile project(':short-video-lib')
     compile 'com.hedgehog.ratingbar:app:1.0.2'
 }

@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.lsp.shortvideo.VideoActivity;
 import com.lsp.test.fabprogresscircle.FABProgressCircleActivity;
 import com.lsp.test.fragment.BaseFragment;
 import com.lsp.test.fragment.DesFragment;
@@ -111,6 +112,10 @@ public class MainActivity extends AppCompatActivity
             case R.id.fabProgressCircle:
                 Intent intent = new Intent(MainActivity.this, FABProgressCircleActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.video_activity://跳转到short-video-lib VideoActivity
+                Intent intent2 = new Intent(MainActivity.this, VideoActivity.class);
+                startActivity(intent2);
                 break;
         }
 
