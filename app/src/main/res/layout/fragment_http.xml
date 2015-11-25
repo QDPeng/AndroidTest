@@ -43,6 +43,13 @@
 
     </android.support.design.widget.TextInputLayout>
 
+    <com.lsp.test.widget.CleanableEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/delete"
+        android:hint="password"
+        android:inputType="text" />
+
     <Button
         android:id="@+id/http_fragment_sign_in"
         style="?android:textAppearanceSmall"
