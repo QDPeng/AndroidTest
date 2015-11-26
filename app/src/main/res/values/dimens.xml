@@ -16,4 +16,25 @@
     <dimen name="fab_margin">26dp</dimen>
     <dimen name="fab_top_margin">-32dp</dimen>
     <dimen name="fab_elevation">4dp</dimen>
+
+    <color name="default_ev_border_color">#CCCCCC</color>
+    <dimen name="default_ev_border_width">5dp</dimen>
+    <dimen name="default_ev_border_radius">3dp</dimen>
+    <color name="default_ev_password_color">#CCCCCC</color>
+    <dimen name="default_ev_password_width">10dp</dimen>
+    <dimen name="default_ev_password_radius">3dp</dimen>
+    <integer name="default_ev_password_length">6</integer>
+
+    <dimen name="custom_ev_border_width">2dp</dimen>
+    <dimen name="custom_ev_border_radius">10dp</dimen>
+    <dimen name="custom_ev_password_width">10dp</dimen>
+    <declare-styleable name="PasswordInputView">
+        <attr name="bordersWidth" format="dimension" />
+        <attr name="borderColor" format="color" />
+        <attr name="borderRadius" format="dimension" />
+        <attr name="passwordLength" format="integer" />
+        <attr name="passwordWidth" format="dimension" />
+        <attr name="passwordColor" format="color" />
+        <attr name="passwordRadius" format="dimension" />
+    </declare-styleable>
 </resources>
