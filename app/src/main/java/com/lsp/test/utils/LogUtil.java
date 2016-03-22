@@ -7,7 +7,7 @@ import android.util.Log;
  */
 public class LogUtil {
     public static boolean isDebug = true;
-    public static final String TAG = "fc51";
+    public static final String TAG = "liusp";
 
     public static void i(String title, String info) {
         if (isDebug)

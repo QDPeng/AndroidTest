@@ -22,6 +22,7 @@ import com.lsp.test.fragment.BaseFragment;
 import com.lsp.test.fragment.DesFragment;
 import com.lsp.test.fragment.HttpFragment;
 import com.lsp.test.fragment.WaveViewFragment;
+import com.lsp.test.netty.NettyActivity;
 import com.lsp.test.utils.ToastUtil;
 
 public class MainActivity extends AppCompatActivity
@@ -116,6 +117,10 @@ public class MainActivity extends AppCompatActivity
             case R.id.video_activity://跳转到short-video-lib VideoActivity
                 Intent intent2 = new Intent(MainActivity.this, VideoActivity.class);
                 startActivity(intent2);
+                break;
+            case R.id.netty_activity:
+                Intent intent3 = new Intent(MainActivity.this, NettyActivity.class);
+                startActivity(intent3);
                 break;
         }
 

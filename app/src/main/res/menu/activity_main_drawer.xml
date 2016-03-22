@@ -22,6 +22,10 @@
             android:id="@+id/video_activity"
             android:icon="@android:drawable/ic_menu_manage"
             android:title="VideoActivity" />
+        <item
+            android:id="@+id/netty_activity"
+            android:icon="@android:drawable/ic_menu_manage"
+            android:title="NettyActivity" />
     </group>
 
     <item android:title="Communicate">
