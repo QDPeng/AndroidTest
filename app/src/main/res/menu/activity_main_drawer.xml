@@ -26,6 +26,10 @@
             android:id="@+id/netty_activity"
             android:icon="@android:drawable/ic_menu_manage"
             android:title="NettyActivity" />
+        <item
+            android:id="@+id/flow_fragment"
+            android:icon="@android:drawable/ic_menu_manage"
+            android:title="FlowFragment" />
     </group>
 
     <item android:title="Communicate">

@@ -51,7 +51,7 @@ public class DonutProgress extends View {
     private final int default_inner_bottom_text_color = Color.rgb(66, 145, 241);
     private final int default_inner_background_color = Color.TRANSPARENT;
     private final int default_max = 100;
-    private final int default_startingDegree = 0;
+    private final int default_startingDegree = 270;
     private final float default_text_size;
     private final float default_inner_bottom_text_size;
     private final int min_size;

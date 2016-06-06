@@ -18,6 +18,7 @@ import android.view.MenuItem;
 
 import com.lsp.shortvideo.VideoActivity;
 import com.lsp.test.fabprogresscircle.FABProgressCircleActivity;
+import com.lsp.test.flowlayout.FlowFragment;
 import com.lsp.test.fragment.BaseFragment;
 import com.lsp.test.fragment.DesFragment;
 import com.lsp.test.fragment.HttpFragment;
@@ -109,6 +110,9 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.wave_view_fragment:
                 addFragment(waveViewFragment);
+                break;
+            case R.id.flow_fragment:
+                addFragment(new FlowFragment());
                 break;
             case R.id.fabProgressCircle:
                 Intent intent = new Intent(MainActivity.this, FABProgressCircleActivity.class);
