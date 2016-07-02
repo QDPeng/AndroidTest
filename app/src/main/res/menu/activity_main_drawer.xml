@@ -30,6 +30,10 @@
             android:id="@+id/flow_fragment"
             android:icon="@android:drawable/ic_menu_manage"
             android:title="FlowFragment" />
+        <item
+            android:id="@+id/nine_old_anim_demo"
+            android:icon="@android:drawable/ic_menu_manage"
+            android:title="NineOldAnimDemo" />
     </group>
 
     <item android:title="Communicate">

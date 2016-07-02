@@ -3,11 +3,10 @@ package com.lsp.test;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.lsp.shortvideo.VideoActivity;
 import com.lsp.test.fabprogresscircle.FABProgressCircleActivity;
@@ -126,6 +126,10 @@ public class MainActivity extends AppCompatActivity
                 Intent intent3 = new Intent(MainActivity.this, NettyActivity.class);
                 startActivity(intent3);
                 break;
+//            case R.id.nine_old_anim_demo:
+//                Intent intent4 = new Intent(MainActivity.this, NineOldAnimDemos.class);
+//                startActivity(intent4);
+//                break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

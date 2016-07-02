@@ -35,7 +35,9 @@
             android:name=".service.TestService"
             android:enabled="true" />
 
-        <activity android:name=".netty.NettyActivity"></activity>
+        <activity android:name=".netty.NettyActivity"/>
+
+        <!---->
     </application>
 
 </manifest>
