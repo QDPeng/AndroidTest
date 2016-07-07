@@ -1,2 +1,2 @@
+include ':swipeback', ':dragitemgridview', ':dragdeleteitem', ':dial_view', ':observable_scrollview', ':ijk_player_demo', ':picker_demo'
 include ':app', ':socket-test', ':short-video-lib', ':nineoldandroidsdemo', ':wangyinewsdemo', 'circle-progress-lib', 'wave-view-lib', 'fab-progress-circle', 'ratingbar-lib'
-include ':swipeback'
