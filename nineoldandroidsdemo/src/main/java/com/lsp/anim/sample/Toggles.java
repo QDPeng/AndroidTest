@@ -21,6 +21,7 @@ public class Toggles extends Activity {
         findViewById(R.id.tx).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                //先向右加50，在向左移动50，左后归零
                 ObjectAnimator.ofFloat(target, "translationX", 0, 50, -50, 0).setDuration(duration).start();
             }
         });

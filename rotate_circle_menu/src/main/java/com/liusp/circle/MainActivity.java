@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     CircleMenu circleMenu;
     ImageView circleBg;
+    ImageView circleUpView;
     private ArrayList<ItemEntity> list = new ArrayList<>();
 
     @Override
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         circleBg = (ImageView) findViewById(R.id.circle_bg);
+        circleUpView = (ImageView) findViewById(R.id.circle_up_view);
         circleMenu = (CircleMenu) findViewById(R.id.circle_menu);
         if (circleMenu != null) {
             initDisplay();
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
+            circleMenu.setCircleUpView(circleUpView);
             circleMenu.setCircleBg(circleBg);
             circleMenu.setChildAngles();
         }
@@ -75,5 +78,6 @@ public class MainActivity extends AppCompatActivity {
         int width = dm.widthPixels;
         circleMenu.setLayoutParams(new RelativeLayout.LayoutParams(width, width));
         circleBg.setLayoutParams(new RelativeLayout.LayoutParams(width, width));
+        circleUpView.setLayoutParams(new RelativeLayout.LayoutParams(width, width / 2 + 10));
     }
 }

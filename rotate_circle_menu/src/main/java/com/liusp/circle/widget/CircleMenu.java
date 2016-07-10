@@ -69,6 +69,7 @@ public class CircleMenu extends ViewGroup {
     private int textColor = Color.WHITE;
     private int textSize = 14;//sp
     private View circleBg;//circle menu background view
+    private View circleUpView;
     private static final int ITEM_COUNT = 6;//define six item views
     private ArrayList<ItemEntity> entitys = null;
 
@@ -134,6 +135,10 @@ public class CircleMenu extends ViewGroup {
         this.circleBg = view;
     }
 
+    public void setCircleUpView(View view) {
+        this.circleUpView = view;
+    }
+
     public void setEntitys(ArrayList<ItemEntity> list) {
         this.entitys = list;
     }
@@ -155,6 +160,12 @@ public class CircleMenu extends ViewGroup {
             itemView.setTextVisible(true);
             itemView.setTextColor(textColor);
             itemView.setTextSize(textSize);
+            itemView.setSmallText("+" + i);
+            if (i == 0) {
+                itemView.setDataIndex(0);
+            } else {
+                itemView.setDataIndex(ITEM_COUNT - i);
+            }
             addView(itemView, i);
         }
     }
@@ -291,7 +302,6 @@ public class CircleMenu extends ViewGroup {
                 || Math.abs(angle - endDegree) < 1) {
             return;
         }
-
         animator = ObjectAnimator.ofFloat(this, "angle", angle,
                 endDegree);
         animator.setDuration(duration);
@@ -337,10 +347,12 @@ public class CircleMenu extends ViewGroup {
         int left, top, childCount = getChildCount();
         float angleDelay = 360.0f / childCount;
         float localAngle = angle;
-        if (circleBg != null)
-            ViewHelper.setRotation(circleBg, localAngle + 30);
+        if (circleBg != null) {
+            float rotate = localAngle + 30;
+            ViewHelper.setRotation(circleBg, rotate);
 
-        Log.i("liusp", "totalAngle:" + totalAngle);
+
+        }
 
         for (int i = 0; i < childCount; i++) {
             if (localAngle > 360) {
@@ -360,13 +372,41 @@ public class CircleMenu extends ViewGroup {
                     * Math.cos(Math.toRadians(localAngle))));
             top = Math.round((float) (((circleHeight / 2) - childHeight / 2) + radius
                     * Math.sin(Math.toRadians(localAngle))));
+            if (i == 0) {
+                float itemAngle = child.getAngle();
+                if (itemAngle >= 0 && itemAngle <= 60) {
+                    if (localAngle >= 300 && localAngle <= 360) {
+                        totalAngle -= itemAngle + (360 - localAngle);
+                    } else {
+                        totalAngle += localAngle - itemAngle;
+                    }
 
+                } else if (itemAngle >= 300 && itemAngle <= 360) {
+                    if (localAngle >= 0 && localAngle <= 60) {
+                        totalAngle += localAngle + (360 - itemAngle);
+                    } else {
+                        totalAngle += localAngle - itemAngle;
+                    }
+                } else {
+                    totalAngle += localAngle - itemAngle;
+                }
+
+
+            }
+            int newIndex = child.getDataIndex();
+            if (localAngle >= 240 && localAngle <= 300) {
+                int rotateTimes = (int) ((totalAngle - 90) / 360);
+                newIndex = rotateTimes * 6 + child.getDataIndex();
+            }
+            Log.i("liusp", "totalAngle:" + (totalAngle - 90));
+            child.setText(String.valueOf(newIndex));
             child.setAngle(localAngle);
             if (localAngle >= 60 && localAngle <= 120) {
                 child.setTextSize(18);
             } else {
                 child.setTextSize(textSize);
             }
+
             ViewHelper.setRotation(child, localAngle + 270);
             float distance = Math.abs(localAngle - firstChildPosition.getValue());
             float halfAngleDelay = angleDelay / 2;
@@ -416,6 +456,16 @@ public class CircleMenu extends ViewGroup {
         }
     }
 
+//    /**
+//     * 判断是顺时针还是逆时针旋转
+//     * @param event
+//     * @return
+//     */
+//    private boolean isClockWiseRotate(MotionEvent event) {
+//        float x = event.getX();
+//        float y = event.getY();
+//    }
+
     // Touch helpers
     private double touchStartAngle;
     private boolean didMove = false;
@@ -423,10 +473,14 @@ public class CircleMenu extends ViewGroup {
     @Override
     public boolean onTouchEvent(@NonNull MotionEvent event) {
         if (isEnabled()) {
+
             gestureDetector.onTouchEvent(event);
             if (isRotating) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
+                        if (circleUpView != null && inRangeOfView(circleUpView, event)) {
+                            return false;
+                        }
                         // reset the touched quadrants
                         for (int i = 0; i < quadrantTouched.length; i++) {
                             quadrantTouched[i] = false;
@@ -438,10 +492,20 @@ public class CircleMenu extends ViewGroup {
                         didMove = false;
                         break;
                     case MotionEvent.ACTION_MOVE:
+                        if (circleUpView != null && inRangeOfView(circleUpView, event)) {
+                            return false;
+                        }
                         double currentAngle = getPositionAngle(event.getX(),
                                 event.getY());
+                        float deltAngle = (float) (touchStartAngle - currentAngle);
+                        if (currentAngle > touchStartAngle) {
+                            //anti clockwise
 
-                        rotateButtons((float) (touchStartAngle - currentAngle));
+                        } else if (currentAngle < touchStartAngle) {
+                            //clockwise
+
+                        }
+                        rotateButtons(deltAngle);
                         touchStartAngle = currentAngle;
                         didMove = true;
                         break;
@@ -489,10 +553,12 @@ public class CircleMenu extends ViewGroup {
                 // the inverted rotations
                 animateTo(getCenteredAngle(angle - (velocityX + velocityY) / 25),
                         25000 / speed);
+                Log.i("liusp", "fling_1:" + (velocityX + velocityY) / 25);
             } else {
                 // the normal rotation
                 animateTo(getCenteredAngle(angle + (velocityX + velocityY) / 25),
                         25000 / speed);
+                Log.i("liusp", "fling_2:" + (velocityX + velocityY) / 25);
             }
 
             return true;
@@ -517,6 +583,7 @@ public class CircleMenu extends ViewGroup {
 
             return angle;
         }
+
 
         @Override
         public boolean onSingleTapUp(MotionEvent e) {
@@ -622,6 +689,15 @@ public class CircleMenu extends ViewGroup {
         private float angle = 0;
         // Position represents the index of this view in the view groups children array
         private int position = 0;
+        private int dataIndex;
+
+        public int getDataIndex() {
+            return dataIndex;
+        }
+
+        public void setDataIndex(int dataIndex) {
+            this.dataIndex = dataIndex;
+        }
 
         /**
          * Return the angle of the view.
