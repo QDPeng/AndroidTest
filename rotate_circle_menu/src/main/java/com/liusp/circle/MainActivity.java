@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -50,11 +52,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 20; i++) {
             ItemEntity entity = new ItemEntity();
             if (i <= 10) {
                 entity.setDay(i % 10);
-                entity.setName("发芽期");
+                entity.setName("发芽期" + i);
             } else if (i <= 20) {
                 entity.setDay((i - 10) % 10);
                 entity.setName("育苗期");
@@ -69,6 +71,12 @@ public class MainActivity extends AppCompatActivity {
                 entity.setName("成熟期");
             }
             list.add(entity);
+        }
+        circleMenu.setEntitys(list);
+    }
+
+    public void selectIndex(View view) {
+        if (view.getId() == R.id.select_index) {
         }
     }
 

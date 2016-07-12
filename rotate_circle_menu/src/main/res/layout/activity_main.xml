@@ -27,9 +27,15 @@
             android:id="@+id/circle_up_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher" />
+            android:scaleType="centerCrop" />
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/select_index"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="selectIndex"
+        android:text="select" />
 
 </LinearLayout>
 
