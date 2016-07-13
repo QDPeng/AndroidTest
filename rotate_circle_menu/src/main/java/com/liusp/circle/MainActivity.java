@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             circleMenu.setOnRotationFinishedListener(new CircleMenu.OnRotationFinishedListener() {
                 @Override
                 public void onRotationFinished(CircleMenu.ItemView view) {
-
+//                    Toast.makeText(MainActivity.this, view.getIncreaseId() + "", Toast.LENGTH_LONG).show();
                 }
             });
             circleMenu.setCircleUpView(circleUpView);
@@ -59,16 +59,16 @@ public class MainActivity extends AppCompatActivity {
                 entity.setName("发芽期" + i);
             } else if (i <= 20) {
                 entity.setDay((i - 10) % 10);
-                entity.setName("育苗期");
+                entity.setName("育苗期" + (i - 10) % 10);
             } else if (i <= 50) {
                 entity.setDay((i - 20) % 30);
-                entity.setName("开花期");
+                entity.setName("开花期" + (i - 20) % 30);
             } else if (i <= 80) {
                 entity.setDay((i - 50) % 30);
-                entity.setName("结果期");
+                entity.setName("结果期" + (i - 50) % 30);
             } else {
                 entity.setDay((i - 80) % 20);
-                entity.setName("成熟期");
+                entity.setName("成熟期" + (i - 80) % 20);
             }
             list.add(entity);
         }
@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void selectIndex(View view) {
         if (view.getId() == R.id.select_index) {
+            circleMenu.setChildLayout(11);
         }
     }
 

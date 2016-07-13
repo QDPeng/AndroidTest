@@ -2,7 +2,6 @@ package com.liusp.circle.widget;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
-import android.content.ClipData;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -57,6 +56,7 @@ public class CircleMenu extends ViewGroup {
     private boolean isRotating = true;
 
     private ItemView tappedView = null;
+    private int tappedViewAngle = -1;
     private int selected = 0;
     private int entityCount;
     private boolean isFirstItem, isEndItem;
@@ -105,24 +105,36 @@ public class CircleMenu extends ViewGroup {
     }
 
     public void setAngle(float angle) {
-        if (isFirstItem || isEndItem) {
-            Log.i("liusp", "isFirstItem:" + isFirstItem + ",isEndItem:" + isEndItem);
-            return;
+        Log.i("liusp","tappedViewAngle" + tappedViewAngle);
+        if (isFirstItem) {
+            if (tappedViewAngle == 30) {
+                this.angle = angle % 360;
+                setChildAngles();
+                return;
+            } else {
+                tappedViewAngle = -1;
+                setChildLayout(0);
+                return;
+            }
+
         }
-        if (totalAngle - 90 <= 5) {
-            return;
+        if (isEndItem) {
+            if (tappedViewAngle == 150) {
+                this.angle = angle % 360;
+                setChildAngles();
+                return;
+            } else {
+                tappedViewAngle = -1;
+                setChildLayout(entityCount - 1);
+                return;
+            }
+
         }
-        float endAngle = (entityCount - 1) * 60;
-        if (endAngle <= 0) {
-            return;
-        }
-        if (totalAngle - 90 >= endAngle) {
-            return;
-        }
-        Log.i("liusp", "angle:" + angle);
+
         this.angle = angle % 360;
         setChildAngles();
     }
+
 
     public void setSpeed(int speed) {
         this.speed = speed;
@@ -355,6 +367,95 @@ public class CircleMenu extends ViewGroup {
 
     private android.os.Handler handler = new android.os.Handler();
 
+    public void setChildLayout(int listId) {
+        if (listId < 0 || listId > entityCount) {
+            return;
+        }
+        if (listId == 0) {
+            isFirstItem = true;
+        } else {
+            isFirstItem = false;
+        }
+        if (listId == entityCount - 1) {
+            isEndItem = true;
+        } else {
+            isEndItem = false;
+        }
+        int index = listId % 6;
+        if (index != 0) {
+            selected = 6 - index;
+        } else {
+            selected = index;
+        }
+        this.totalAngle = listId * 60 + 90;
+        float localAngle = (90 + index * 60) % 360;
+        this.angle = localAngle;
+        int left, top, childCount = getChildCount();
+        float angleDelay = 360.0f / childCount;
+        if (circleBg != null) {
+            float rotate = localAngle + 30;
+            ViewHelper.setRotation(circleBg, rotate);
+        }
+
+        for (int i = 0; i < childCount; i++) {
+            if (localAngle > 360) {
+                localAngle -= 360;
+            } else {
+                if (localAngle < 0) {
+                    localAngle += 360;
+                }
+            }
+
+            final ItemView child = (ItemView) getChildAt(i);
+
+            left = Math.round((float) (((circleWidth / 2) - childWidth / 2) + radius
+                    * Math.cos(Math.toRadians(localAngle))));
+            top = Math.round((float) (((circleHeight / 2) - childHeight / 2) + radius
+                    * Math.sin(Math.toRadians(localAngle))));
+            child.setAngle(localAngle);
+            if (i == selected) {
+                child.setTextSize(16);
+            } else {
+                child.setTextSize(textSize);
+            }
+            int mAngle = Math.round(localAngle);
+            switch (mAngle) {
+                case 90:
+                    child.setIncreaseId(listId);
+                    break;
+                case 150:
+                    child.setIncreaseId(listId - 1);
+                    break;
+                case 210:
+                    child.setIncreaseId(listId - 2);
+                    break;
+                case 30:
+                    child.setIncreaseId(listId + 1);
+                    break;
+                case 330:
+                    child.setIncreaseId(listId + 2);
+                    break;
+                case 270:
+                    child.setIncreaseId(listId + 3);
+                    break;
+
+            }
+
+            if (entitys != null && child.getIncreaseId() >= 0 && child.getIncreaseId() < entityCount) {
+                child.setText(entitys.get(child.getIncreaseId()).getName());
+            } else {
+                child.setText(null);
+            }
+
+            ViewHelper.setRotation(child, localAngle + 270);
+            child.layout(left, top, left + childWidth, top + childHeight);
+            localAngle += angleDelay;
+        }
+
+
+    }
+
+
     private synchronized void asyncSetChildAngles() {
 
         int left, top, childCount = getChildCount();
@@ -364,7 +465,6 @@ public class CircleMenu extends ViewGroup {
             float rotate = localAngle + 30;
             ViewHelper.setRotation(circleBg, rotate);
         }
-
         for (int i = 0; i < childCount; i++) {
             if (localAngle > 360) {
                 localAngle -= 360;
@@ -401,6 +501,7 @@ public class CircleMenu extends ViewGroup {
                 } else {
                     totalAngle += localAngle - itemAngle;
                 }
+
             }
 
 
@@ -453,7 +554,7 @@ public class CircleMenu extends ViewGroup {
                 child.setTextSize(textSize);
             }
 
-            ViewHelper.setRotation(child, localAngle + 270);
+            ViewHelper.setRotation(child, localAngle - 90);
             float distance = Math.abs(localAngle - firstChildPosition.getValue());
             float halfAngleDelay = angleDelay / 2;
             boolean isFirstItem = distance < halfAngleDelay
@@ -474,7 +575,7 @@ public class CircleMenu extends ViewGroup {
             isFirstItem = false;
         }
         float endAngle = (entityCount - 1) * 60;
-        if (endAngle <= 0 || totalAngle - 90 >= endAngle) {
+        if (totalAngle - 90 >= endAngle) {
             isEndItem = true;
         } else {
             isEndItem = false;
@@ -556,17 +657,13 @@ public class CircleMenu extends ViewGroup {
                         float deltAngle = (float) (touchStartAngle - currentAngle);
                         if (deltAngle < 0) {
                             //anti clockwise
-                            if (totalAngle - 90 <= 5) {
+                            if (isFirstItem) {
                                 return false;
                             }
 
                         } else if (deltAngle > 0) {
                             //clockwise
-                            float endAngle = (entityCount - 1) * 60;
-                            if (endAngle <= 0) {
-                                return false;
-                            }
-                            if (totalAngle - 90 >= endAngle) {
+                            if (isEndItem) {
                                 return false;
                             }
                         }
@@ -599,6 +696,7 @@ public class CircleMenu extends ViewGroup {
             if (!isRotating) {
                 return false;
             }
+
             // get the quadrant of the start and the end of the fling
             int q1 = getPositionQuadrant(e1.getX() - (circleWidth / 2),
                     circleHeight - e1.getY() - (circleHeight / 2));
@@ -663,6 +761,7 @@ public class CircleMenu extends ViewGroup {
                         onItemClickListener.onItemClick(tappedView);
                     }
                 } else {
+                    tappedViewAngle = Math.round(tappedView.getAngle());
                     rotateViewToCenter(tappedView);
                     if (!isRotating) {
                         if (onItemSelectedListener != null) {
@@ -842,7 +941,7 @@ public class CircleMenu extends ViewGroup {
             super(context);
             int wrapContent = ViewGroup.LayoutParams.MATCH_PARENT;
             setLayoutParams(new ViewGroup.LayoutParams(wrapContent, wrapContent));
-            setOrientation(HORIZONTAL);
+            setOrientation(VERTICAL);
             setGravity(Gravity.CENTER);
             textView = new TextView(context);
             smallTextView = new TextView(context);
